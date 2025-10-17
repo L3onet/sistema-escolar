@@ -17,16 +17,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <!-- Cursos y Grupos -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navCursos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tabla
+                            Aseguradoras
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navCursos">
-                            <li><a class="dropdown-item" href="#">Mostrar</a></li>
-                            <li><a class="dropdown-item" href="#">Agregar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('aseguradoras.index') }}">Mostrar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('aseguradoras.create') }}">Agregar</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -46,5 +46,31 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Confirmación de eliminación con SweetAlert2
+    document.querySelectorAll('.delete-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Está seguro?',
+                text: "Esta acción no se puede revertir",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
