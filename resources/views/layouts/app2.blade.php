@@ -27,6 +27,16 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navUnidades" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidades Temáticas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navUnidades">
+                            <li><a class="dropdown-item" href="{{ route('unidades_tematicas.index') }}">Mostrar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('unidades_tematicas.create') }}">Agregar</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>
