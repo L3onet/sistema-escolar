@@ -3,6 +3,7 @@
 use App\Http\Controllers\AseguradoraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadTematicaController;
+use App\Http\Controllers\PeriodoEscolarController;
 
 Route::get('/', function () {
     return view('inicio');
@@ -32,7 +33,7 @@ Route::put('/unidades-tematicas/{no_de_unidad}/{materia}', [UnidadTematicaContro
 Route::delete('/unidades-tematicas/{no_de_unidad}/{materia}', [UnidadTematicaController::class, 'destroy'])
     ->name('unidades_tematicas.destroy');
 
-
+Route::resource('periodos-escolares', PeriodoEscolarController::class);
 
 /*
 Route::middleware([
