@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,49 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <!-- Alumnos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('alumnos.*') ? 'active' : '' }}" 
+                           href="#" 
+                           id="navAlumnos" 
+                           role="button" 
+                           data-bs-toggle="dropdown" 
+                           aria-expanded="false">
+                            <i class="bi bi-people-fill"></i> Alumnos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navAlumnos">
+                            <li>
+                                <a class="dropdown-item {{ request()->routeIs('alumnos.index') ? 'active' : '' }}" 
+                                   href="{{ route('alumnos.index') }}">
+                                    <i class="bi bi-list-ul"></i> Mostrar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item {{ request()->routeIs('alumnos.create') ? 'active' : '' }}" 
+                                   href="{{ route('alumnos.create') }}">
+                                    <i class="bi bi-plus-circle"></i> Agregar
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('alumnos.index', ['estatus_alumno' => 'ACT']) }}">
+                                    <i class="bi bi-check-circle text-success"></i> Ver Activos
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('alumnos.index', ['estatus_alumno' => 'INA']) }}">
+                                    <i class="bi bi-x-circle text-secondary"></i> Ver Inactivos
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('alumnos.export') }}">
+                                    <i class="bi bi-file-earmark-excel text-success"></i> Exportar
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <!-- Períodos Escolares -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{ request()->routeIs('periodos-escolares.*') ? 'active' : '' }}" 

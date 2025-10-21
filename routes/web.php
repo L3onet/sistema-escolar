@@ -4,6 +4,7 @@ use App\Http\Controllers\AseguradoraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadTematicaController;
 use App\Http\Controllers\PeriodoEscolarController;
+use App\Http\Controllers\AlumnoController;
 
 Route::get('/', function () {
     return view('inicio');
@@ -34,6 +35,19 @@ Route::delete('/unidades-tematicas/{no_de_unidad}/{materia}', [UnidadTematicaCon
     ->name('unidades_tematicas.destroy');
 
 Route::resource('periodos-escolares', PeriodoEscolarController::class);
+
+// Rutas para Alumnos
+// Nota: La clave primaria es 'no_de_control' (string), no 'id'
+Route::resource('alumnos', AlumnoController::class)->parameters([
+    'alumnos' => 'no_de_control'
+]);
+
+// Rutas adicionales para Alumnos
+Route::get('alumnos-export', [AlumnoController::class, 'export'])
+    ->name('alumnos.export');
+
+Route::get('alumnos-clear-filters', [AlumnoController::class, 'clearFilters'])
+    ->name('alumnos.clearFilters');
 
 /*
 Route::middleware([
