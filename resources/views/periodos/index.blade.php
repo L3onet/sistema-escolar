@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app3')
 
 @section('title', 'Períodos Escolares')
 
@@ -34,8 +34,8 @@
                 <!-- Búsqueda -->
                 <div class="col-md-4">
                     <label for="search" class="form-label">Buscar</label>
-                    <input type="text" class="form-control" id="search" name="search" 
-                           placeholder="Período, identificación..." 
+                    <input type="text" class="form-control" id="search" name="search"
+                           placeholder="Período, identificación..."
                            value="{{ request('search') }}">
                 </div>
 
@@ -52,14 +52,14 @@
                 <!-- Fecha Inicio -->
                 <div class="col-md-2">
                     <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
-                    <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" 
+                    <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio"
                            value="{{ request('fecha_inicio') }}">
                 </div>
 
                 <!-- Fecha Término -->
                 <div class="col-md-2">
                     <label for="fecha_termino" class="form-label">Fecha Término</label>
-                    <input type="date" class="form-control" id="fecha_termino" name="fecha_termino" 
+                    <input type="date" class="form-control" id="fecha_termino" name="fecha_termino"
                            value="{{ request('fecha_termino') }}">
                 </div>
 
@@ -80,7 +80,7 @@
                     <thead class="table-dark">
                         <tr>
                             <th>
-                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'periodo', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'periodo', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                    class="text-white text-decoration-none">
                                     Período
                                     @if(request('sort_by') == 'periodo')
@@ -89,7 +89,7 @@
                                 </a>
                             </th>
                             <th>
-                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'identificacion_larga', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'identificacion_larga', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                    class="text-white text-decoration-none">
                                     Identificación Larga
                                     @if(request('sort_by') == 'identificacion_larga')
@@ -99,7 +99,7 @@
                             </th>
                             <th>Identificación Corta</th>
                             <th>
-                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'status', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'status', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                    class="text-white text-decoration-none">
                                     Status
                                     @if(request('sort_by') == 'status')
@@ -108,7 +108,7 @@
                                 </a>
                             </th>
                             <th>
-                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'fecha_inicio', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'fecha_inicio', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                    class="text-white text-decoration-none">
                                     Fecha Inicio
                                     @if(request('sort_by') == 'fecha_inicio')
@@ -117,7 +117,7 @@
                                 </a>
                             </th>
                             <th>
-                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'fecha_termino', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                <a href="{{ route('periodos-escolares.index', array_merge(request()->all(), ['sort_by' => 'fecha_termino', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                    class="text-white text-decoration-none">
                                     Fecha Término
                                     @if(request('sort_by') == 'fecha_termino')
@@ -147,18 +147,18 @@
                             <td>{{ $periodo->num_dias_clase }}</td>
                             <td class="text-center">
                                 <div class="btn-group" role="group">
-                                    <a href="{{ route('periodos-escolares.show', $periodo->periodo) }}" 
-                                       class="btn btn-sm btn-info" 
+                                    <a href="{{ route('periodos-escolares.show', $periodo->periodo) }}"
+                                       class="btn btn-sm btn-info"
                                        title="Ver detalles">
                                         <i class="bi bi-eye"></i> Ver
                                     </a>
-                                    <a href="{{ route('periodos-escolares.edit', $periodo->periodo) }}" 
-                                       class="btn btn-sm btn-warning" 
+                                    <a href="{{ route('periodos-escolares.edit', $periodo->periodo) }}"
+                                       class="btn btn-sm btn-warning"
                                        title="Editar">
                                         <i class="bi bi-pencil"></i> Editar
                                     </a>
-                                    <button type="button" 
-                                            class="btn btn-sm btn-danger" 
+                                    <button type="button"
+                                            class="btn btn-sm btn-danger"
                                             onclick="confirmarEliminar('{{ $periodo->periodo }}')"
                                             title="Eliminar">
                                         <i class="bi bi-trash"></i> Eliminar
@@ -181,7 +181,7 @@
             <div class="d-flex justify-content-between align-items-center mt-4">
                 <div>
                     <p class="text-muted mb-0">
-                        Mostrando {{ $periodos->firstItem() ?? 0 }} a {{ $periodos->lastItem() ?? 0 }} 
+                        Mostrando {{ $periodos->firstItem() ?? 0 }} a {{ $periodos->lastItem() ?? 0 }}
                         de {{ $periodos->total() }} registros
                     </p>
                 </div>

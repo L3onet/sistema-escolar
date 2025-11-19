@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app3')
 
 @section('title', 'Alumnos - Sistema Académico')
 
@@ -31,10 +31,10 @@
                     <!-- Número de Control -->
                     <div class="col-md-3">
                         <label for="no_de_control" class="form-label">Número de Control</label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="no_de_control" 
-                               name="no_de_control" 
+                        <input type="text"
+                               class="form-control"
+                               id="no_de_control"
+                               name="no_de_control"
                                value="{{ request('no_de_control') }}"
                                placeholder="Ej: 20401234">
                     </div>
@@ -42,10 +42,10 @@
                     <!-- Nombre -->
                     <div class="col-md-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="nombre" 
-                               name="nombre" 
+                        <input type="text"
+                               class="form-control"
+                               id="nombre"
+                               name="nombre"
                                value="{{ request('nombre') }}"
                                placeholder="Nombre completo">
                     </div>
@@ -92,10 +92,10 @@
                     <!-- CURP -->
                     <div class="col-md-3">
                         <label for="curp_alumno" class="form-label">CURP</label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="curp_alumno" 
-                               name="curp_alumno" 
+                        <input type="text"
+                               class="form-control"
+                               id="curp_alumno"
+                               name="curp_alumno"
                                value="{{ request('curp_alumno') }}"
                                placeholder="CURP del alumno">
                     </div>
@@ -103,10 +103,10 @@
                     <!-- Plan de Estudios -->
                     <div class="col-md-2">
                         <label for="plan_de_estudios" class="form-label">Plan de Estudios</label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="plan_de_estudios" 
-                               name="plan_de_estudios" 
+                        <input type="text"
+                               class="form-control"
+                               id="plan_de_estudios"
+                               name="plan_de_estudios"
                                value="{{ request('plan_de_estudios') }}"
                                placeholder="Plan">
                     </div>
@@ -114,10 +114,10 @@
                     <!-- Especialidad -->
                     <div class="col-md-2">
                         <label for="especialidad" class="form-label">Especialidad</label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="especialidad" 
-                               name="especialidad" 
+                        <input type="text"
+                               class="form-control"
+                               id="especialidad"
+                               name="especialidad"
                                value="{{ request('especialidad') }}"
                                placeholder="Especialidad">
                     </div>
@@ -125,10 +125,10 @@
                     <!-- Periodo de Ingreso -->
                     <div class="col-md-3">
                         <label for="periodo_ingreso_it" class="form-label">Periodo de Ingreso</label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="periodo_ingreso_it" 
-                               name="periodo_ingreso_it" 
+                        <input type="text"
+                               class="form-control"
+                               id="periodo_ingreso_it"
+                               name="periodo_ingreso_it"
                                value="{{ request('periodo_ingreso_it') }}"
                                placeholder="Ej: 20241">
                     </div>
@@ -181,7 +181,7 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>
-                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'no_de_control', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'no_de_control', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                        class="text-white text-decoration-none">
                                         No. Control
                                         @if(request('sort_by') == 'no_de_control')
@@ -190,7 +190,7 @@
                                     </a>
                                 </th>
                                 <th>
-                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'apellido_paterno', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'apellido_paterno', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                        class="text-white text-decoration-none">
                                         Nombre Completo
                                         @if(request('sort_by') == 'apellido_paterno')
@@ -199,7 +199,7 @@
                                     </a>
                                 </th>
                                 <th>
-                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'carrera', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'carrera', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                        class="text-white text-decoration-none">
                                         Carrera
                                         @if(request('sort_by') == 'carrera')
@@ -208,7 +208,7 @@
                                     </a>
                                 </th>
                                 <th>
-                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'semestre', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'semestre', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                        class="text-white text-decoration-none">
                                         Semestre
                                         @if(request('sort_by') == 'semestre')
@@ -217,7 +217,7 @@
                                     </a>
                                 </th>
                                 <th>
-                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'promedio_aritmetico_acumulado', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}" 
+                                    <a href="{{ route('alumnos.index', array_merge(request()->all(), ['sort_by' => 'promedio_aritmetico_acumulado', 'sort_order' => request('sort_order') == 'asc' ? 'desc' : 'asc'])) }}"
                                        class="text-white text-decoration-none">
                                         Promedio
                                         @if(request('sort_by') == 'promedio_aritmetico_acumulado')
@@ -235,8 +235,8 @@
                                 <tr>
                                     <td><strong>{{ $alumno->no_de_control }}</strong></td>
                                     <td>
-                                        {{ $alumno->apellido_paterno }} 
-                                        {{ $alumno->apellido_materno }} 
+                                        {{ $alumno->apellido_paterno }}
+                                        {{ $alumno->apellido_materno }}
                                         {{ $alumno->nombre_alumno }}
                                     </td>
                                     <td>{{ $alumno->carrera ?? 'N/A' }}</td>
@@ -260,23 +260,23 @@
                                     <td>{{ $alumno->correo_electronico ?? 'N/A' }}</td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
-                                            <a href="{{ route('alumnos.show', $alumno->no_de_control) }}" 
-                                               class="btn btn-sm btn-info" 
+                                            <a href="{{ route('alumnos.show', $alumno->no_de_control) }}"
+                                               class="btn btn-sm btn-info"
                                                title="Ver detalles">
                                                 <i class="bi bi-eye"></i>
                                             </a>
-                                            <a href="{{ route('alumnos.edit', $alumno->no_de_control) }}" 
-                                               class="btn btn-sm btn-warning" 
+                                            <a href="{{ route('alumnos.edit', $alumno->no_de_control) }}"
+                                               class="btn btn-sm btn-warning"
                                                title="Editar">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <form action="{{ route('alumnos.destroy', $alumno->no_de_control) }}" 
-                                                  method="POST" 
+                                            <form action="{{ route('alumnos.destroy', $alumno->no_de_control) }}"
+                                                  method="POST"
                                                   class="d-inline delete-form">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" 
-                                                        class="btn btn-sm btn-danger" 
+                                                <button type="submit"
+                                                        class="btn btn-sm btn-danger"
                                                         title="Eliminar">
                                                     <i class="bi bi-trash"></i>
                                                 </button>

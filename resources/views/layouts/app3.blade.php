@@ -5,123 +5,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Sistema Académico')</title>
 
-    <!-- Tailwind CSS -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- O si usas CDN para desarrollo -->
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @stack('styles')
 </head>
-<body class="flex flex-col min-h-screen bg-gray-100">
+<body>
+    <div class="main-wrapper">
+        <!-- Sidebar Toggle (Mobile) -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+            <i class="bi bi-list"></i>
+        </button>
 
-    <!-- Navbar -->
-    <nav class="bg-gray-900 text-white shadow-lg">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo/Brand -->
-                <a href="/" class="text-xl font-bold text-white hover:text-gray-300 transition">
-                    Sistema Académico
-                </a>
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="bi bi-mortarboard-fill"></i>
+                </div>
+                <span class="logo-text">SII - ITCA</span>
+            </div>
 
-                <!-- Botón hamburguesa (móvil) -->
-                <button
-                    id="mobile-menu-button"
-                    class="lg:hidden inline-flex items-center p-2 text-gray-300 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+            <!-- Navigation -->
+            <div class="nav-section-title">Dashboard</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link-custom {{ request()->is('/') ? 'active' : '' }}">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+            </ul>
 
-                <!-- Menú desktop -->
-                <div class="hidden lg:flex lg:items-center lg:space-x-1">
+            <div class="nav-section-title">Gestión Académica</div>
+            <ul class="nav-menu">
+                <!-- Alumnos -->
+                <li class="nav-item {{ request()->routeIs('alumnos.*') ? 'active' : '' }}">
+                    <a href="{{ route('alumnos.index') }}" class="nav-link-custom {{ request()->routeIs('alumnos.*') ? 'active' : '' }}">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Alumnos</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('alumnos.index') }}" class="nav-link-custom"><i class="bi bi-list-ul"></i> Mostrar</a></li>
+                        <li><a href="{{ route('alumnos.create') }}" class="nav-link-custom"><i class="bi bi-plus-circle"></i> Agregar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="{{ route('alumnos.index', ['estatus_alumno' => 'ACT']) }}" class="nav-link-custom"><i class="bi bi-check-circle text-success"></i> Ver Activos</a></li>
+                        <li><a href="{{ route('alumnos.index', ['estatus_alumno' => 'INA']) }}" class="nav-link-custom"><i class="bi bi-x-circle text-secondary"></i> Ver Inactivos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="{{ route('alumnos.export') }}" class="nav-link-custom"><i class="bi bi-file-earmark-excel text-success"></i> Exportar</a></li>
+                    </ul>
+                </li>
 
-                    <!-- Cursos y Grupos -->
-                    <div class="relative dropdown">
-                        <button class="dropdown-toggle px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded transition">
-                            Cursos y Grupos
-                            <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden z-50">
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mostrar</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Agregar</a>
-                        </div>
-                    </div>
+                <!-- Períodos Escolares -->
+                <li class="nav-item {{ request()->routeIs('periodos-escolares.*') ? 'active' : '' }}">
+                    <a href="{{ route('periodos-escolares.index') }}" class="nav-link-custom {{ request()->routeIs('periodos-escolares.*') ? 'active' : '' }}">
+                        <i class="bi bi-calendar-range"></i>
+                        <span>Períodos Escolares</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('periodos-escolares.index') }}" class="nav-link-custom"><i class="bi bi-list-ul"></i> Mostrar</a></li>
+                        <li><a href="{{ route('periodos-escolares.create') }}" class="nav-link-custom"><i class="bi bi-plus-circle"></i> Agregar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="{{ route('periodos-escolares.index', ['status' => 'A']) }}" class="nav-link-custom"><i class="bi bi-check-circle text-success"></i> Ver Activos</a></li>
+                        <li><a href="{{ route('periodos-escolares.index', ['status' => 'I']) }}" class="nav-link-custom"><i class="bi bi-x-circle text-secondary"></i> Ver Inactivos</a></li>
+                    </ul>
+                </li>
 
+                <!-- Aseguradoras -->
+                <li class="nav-item {{ request()->routeIs('aseguradoras.*') ? 'active' : '' }}">
+                    <a href="{{ route('aseguradoras.index') }}" class="nav-link-custom {{ request()->routeIs('aseguradoras.*') ? 'active' : '' }}">
+                        <i class="bi bi-shield-check"></i>
+                        <span>Aseguradoras</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('aseguradoras.index') }}" class="nav-link-custom"><i class="bi bi-list-ul"></i> Mostrar</a></li>
+                        <li><a href="{{ route('aseguradoras.create') }}" class="nav-link-custom"><i class="bi bi-plus-circle"></i> Agregar</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidades Temáticas -->
+                <li class="nav-item {{ request()->routeIs('unidades_tematicas.*') ? 'active' : '' }}">
+                    <a href="{{ route('unidades_tematicas.index') }}" class="nav-link-custom {{ request()->routeIs('unidades_tematicas.*') ? 'active' : '' }}">
+                        <i class="bi bi-book"></i>
+                        <span>Unidades Temáticas</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('unidades_tematicas.index') }}" class="nav-link-custom"><i class="bi bi-list-ul"></i> Mostrar</a></li>
+                        <li><a href="{{ route('unidades_tematicas.create') }}" class="nav-link-custom"><i class="bi bi-plus-circle"></i> Agregar</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-section-title">Usuario</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link-custom">
+                        <i class="bi bi-gear"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link-custom">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                    <span class="search-shortcut">⌘/</span>
+                </div>
+
+                <div class="top-actions">
+                    <button class="action-button">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <button class="action-button">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="action-button">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                    <button class="action-button">
+                        <i class="bi bi-chat-dots"></i>
+                    </button>
+                    <button class="action-button">
+                        <i class="bi bi-question-circle"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Menú móvil -->
-            <div id="mobile-menu" class="hidden lg:hidden pb-4">
-                <div class="flex flex-col space-y-1">
+            <!-- Page Content -->
+            @yield('content')
+        </main>
+    </div>
 
-                    <!-- Cursos y Grupos (móvil) -->
-                    <div class="mobile-dropdown">
-                        <button class="mobile-dropdown-toggle w-full text-left px-3 py-2 text-gray-300 hover:bg-gray-800 rounded flex justify-between items-center">
-                            <span>Cursos y Grupos</span>
-                            <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="mobile-dropdown-menu hidden pl-6 mt-1 space-y-1">
-                            <a href="#" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded">Mostrar</a>
-                            <a href="#" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Contenido principal -->
-    <main class="flex-grow container mx-auto px-4 py-6">
-        @yield('content')
-    </main>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Pie de página -->
-    <footer class="bg-gray-900 text-white py-4 mt-auto">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm text-gray-400">
-                &copy; 202 Sistema Académico. Todos los derechos reservados.
-            </p>
-        </div>
-    </footer>
+    <!-- Custom JavaScript -->
+    <script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- JavaScript para menús desplegables -->
-    <script>
-        // Toggle menú móvil principal
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Dropdowns en desktop (hover)
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-            const menu = dropdown.querySelector('.dropdown-menu');
-
-            dropdown.addEventListener('mouseenter', () => {
-                menu.classList.remove('hidden');
-            });
-
-            dropdown.addEventListener('mouseleave', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // Dropdowns en móvil (click)
-        document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
-            const toggle = dropdown.querySelector('.mobile-dropdown-toggle');
-            const menu = dropdown.querySelector('.mobile-dropdown-menu');
-            const icon = toggle.querySelector('svg');
-
-            toggle.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-            });
-        });
-    </script>
+    @stack('scripts')
 </body>
 </html>

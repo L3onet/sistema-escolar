@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app3')
 
 @section('title', 'Detalles del Período Escolar')
 
@@ -16,8 +16,8 @@
             <a href="{{ route('periodos-escolares.edit', $periodoEscolar->periodo) }}" class="btn btn-warning">
                 <i class="bi bi-pencil"></i> Editar
             </a>
-            <button type="button" 
-                    class="btn btn-danger" 
+            <button type="button"
+                    class="btn btn-danger"
                     onclick="confirmarEliminar('{{ $periodoEscolar->periodo }}')">
                 <i class="bi bi-trash"></i> Eliminar
             </button>
@@ -135,7 +135,7 @@
             @if($periodoEscolar->fecha_inicio && $periodoEscolar->fecha_termino)
             <div class="alert alert-info mt-3 mb-0">
                 <i class="bi bi-info-circle"></i>
-                <strong>Duración del período:</strong> 
+                <strong>Duración del período:</strong>
                 {{ $periodoEscolar->fecha_inicio->diffInDays($periodoEscolar->fecha_termino) }} días
                 ({{ $periodoEscolar->fecha_inicio->diffInWeeks($periodoEscolar->fecha_termino) }} semanas aproximadamente)
             </div>
@@ -498,8 +498,8 @@
                     <a href="{{ route('periodos-escolares.edit', $periodoEscolar->periodo) }}" class="btn btn-warning">
                         <i class="bi bi-pencil"></i> Editar
                     </a>
-                    <button type="button" 
-                            class="btn btn-danger" 
+                    <button type="button"
+                            class="btn btn-danger"
                             onclick="confirmarEliminar('{{ $periodoEscolar->periodo }}')">
                         <i class="bi bi-trash"></i> Eliminar
                     </button>

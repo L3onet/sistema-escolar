@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app3')
 
 @section('title', 'Detalles del Alumno - Sistema Académico')
 
@@ -38,7 +38,7 @@
                             <i class="bi bi-person-circle" style="font-size: 150px; color: #6c757d;"></i>
                         @endif
                     </div>
-                    
+
                     <!-- Estatus del Alumno -->
                     <div class="mb-2">
                         @if($alumno->estatus_alumno == 'ACT')
@@ -362,7 +362,7 @@
                                 <div>
                                     <small class="text-muted">Créditos Aprobados</small>
                                     <h3 class="mb-0 text-success">
-                                        <i class="bi bi-check-circle"></i> 
+                                        <i class="bi bi-check-circle"></i>
                                         {{ $alumno->creditos_aprobados ?? 0 }}
                                     </h3>
                                 </div>
@@ -377,11 +377,11 @@
                             </div>
                             @if($alumno->creditos_aprobados && $alumno->creditos_cursados && $alumno->creditos_cursados > 0)
                                 <div class="progress mt-2" style="height: 25px;">
-                                    <div class="progress-bar bg-success" 
-                                         role="progressbar" 
+                                    <div class="progress-bar bg-success"
+                                         role="progressbar"
                                          style="width: {{ ($alumno->creditos_aprobados / $alumno->creditos_cursados) * 100 }}%"
-                                         aria-valuenow="{{ ($alumno->creditos_aprobados / $alumno->creditos_cursados) * 100 }}" 
-                                         aria-valuemin="0" 
+                                         aria-valuenow="{{ ($alumno->creditos_aprobados / $alumno->creditos_cursados) * 100 }}"
+                                         aria-valuemin="0"
                                          aria-valuemax="100">
                                     </div>
                                 </div>
@@ -395,7 +395,7 @@
                         <div class="card-body">
                             <small class="text-muted">Créditos Cursados</small>
                             <h3 class="mb-0 text-primary">
-                                <i class="bi bi-journal-text"></i> 
+                                <i class="bi bi-journal-text"></i>
                                 {{ $alumno->creditos_cursados ?? 0 }}
                             </h3>
                         </div>
@@ -406,7 +406,7 @@
                 @if($alumno->indice_reprobacion_acumulado)
                 <div class="col-md-6">
                     <div class="alert alert-{{ $alumno->indice_reprobacion_acumulado > 0.3 ? 'danger' : 'success' }} mb-0">
-                        <strong><i class="bi bi-exclamation-triangle"></i> Índice de Reprobación:</strong> 
+                        <strong><i class="bi bi-exclamation-triangle"></i> Índice de Reprobación:</strong>
                         {{ number_format($alumno->indice_reprobacion_acumulado * 100, 2) }}%
                     </div>
                 </div>
@@ -415,7 +415,7 @@
                 @if($alumno->periodos_revalidacion)
                 <div class="col-md-6">
                     <div class="alert alert-info mb-0">
-                        <strong><i class="bi bi-arrow-repeat"></i> Períodos de Revalidación:</strong> 
+                        <strong><i class="bi bi-arrow-repeat"></i> Períodos de Revalidación:</strong>
                         {{ $alumno->periodos_revalidacion }}
                     </div>
                 </div>
@@ -616,8 +616,8 @@
                     <a href="{{ route('alumnos.edit', $alumno->no_de_control) }}" class="btn btn-warning">
                         <i class="bi bi-pencil"></i> Editar Alumno
                     </a>
-                    <form action="{{ route('alumnos.destroy', $alumno->no_de_control) }}" 
-                          method="POST" 
+                    <form action="{{ route('alumnos.destroy', $alumno->no_de_control) }}"
+                          method="POST"
                           class="d-inline delete-form">
                         @csrf
                         @method('DELETE')

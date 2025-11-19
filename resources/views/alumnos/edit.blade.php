@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app3')
 
 @section('title', 'Editar Alumno - Sistema Académico')
 
@@ -50,9 +50,9 @@
                         <label for="no_de_control" class="form-label">
                             Número de Control
                         </label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="no_de_control" 
+                        <input type="text"
+                               class="form-control"
+                               id="no_de_control"
                                value="{{ $alumno->no_de_control }}"
                                disabled>
                         <small class="text-muted">Este campo no se puede modificar</small>
@@ -63,10 +63,10 @@
                         <label for="nombre_alumno" class="form-label">
                             Nombre(s) <span class="text-danger">*</span>
                         </label>
-                        <input type="text" 
-                               class="form-control @error('nombre_alumno') is-invalid @enderror" 
-                               id="nombre_alumno" 
-                               name="nombre_alumno" 
+                        <input type="text"
+                               class="form-control @error('nombre_alumno') is-invalid @enderror"
+                               id="nombre_alumno"
+                               name="nombre_alumno"
                                value="{{ old('nombre_alumno', $alumno->nombre_alumno) }}"
                                maxlength="100"
                                required>
@@ -80,10 +80,10 @@
                         <label for="apellido_paterno" class="form-label">
                             Apellido Paterno
                         </label>
-                        <input type="text" 
-                               class="form-control @error('apellido_paterno') is-invalid @enderror" 
-                               id="apellido_paterno" 
-                               name="apellido_paterno" 
+                        <input type="text"
+                               class="form-control @error('apellido_paterno') is-invalid @enderror"
+                               id="apellido_paterno"
+                               name="apellido_paterno"
                                value="{{ old('apellido_paterno', $alumno->apellido_paterno) }}"
                                maxlength="100">
                         @error('apellido_paterno')
@@ -96,10 +96,10 @@
                         <label for="apellido_materno" class="form-label">
                             Apellido Materno
                         </label>
-                        <input type="text" 
-                               class="form-control @error('apellido_materno') is-invalid @enderror" 
-                               id="apellido_materno" 
-                               name="apellido_materno" 
+                        <input type="text"
+                               class="form-control @error('apellido_materno') is-invalid @enderror"
+                               id="apellido_materno"
+                               name="apellido_materno"
                                value="{{ old('apellido_materno', $alumno->apellido_materno) }}"
                                maxlength="100">
                         @error('apellido_materno')
@@ -112,10 +112,10 @@
                         <label for="curp_alumno" class="form-label">
                             CURP
                         </label>
-                        <input type="text" 
-                               class="form-control @error('curp_alumno') is-invalid @enderror" 
-                               id="curp_alumno" 
-                               name="curp_alumno" 
+                        <input type="text"
+                               class="form-control @error('curp_alumno') is-invalid @enderror"
+                               id="curp_alumno"
+                               name="curp_alumno"
                                value="{{ old('curp_alumno', $alumno->curp_alumno) }}"
                                maxlength="18"
                                style="text-transform: uppercase;">
@@ -129,10 +129,10 @@
                         <label for="fecha_nacimiento" class="form-label">
                             Fecha de Nacimiento
                         </label>
-                        <input type="date" 
-                               class="form-control @error('fecha_nacimiento') is-invalid @enderror" 
-                               id="fecha_nacimiento" 
-                               name="fecha_nacimiento" 
+                        <input type="date"
+                               class="form-control @error('fecha_nacimiento') is-invalid @enderror"
+                               id="fecha_nacimiento"
+                               name="fecha_nacimiento"
                                value="{{ old('fecha_nacimiento', $alumno->fecha_nacimiento?->format('Y-m-d')) }}">
                         @error('fecha_nacimiento')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -144,8 +144,8 @@
                         <label for="sexo" class="form-label">
                             Sexo
                         </label>
-                        <select class="form-select @error('sexo') is-invalid @enderror" 
-                                id="sexo" 
+                        <select class="form-select @error('sexo') is-invalid @enderror"
+                                id="sexo"
                                 name="sexo">
                             <option value="">Seleccione...</option>
                             <option value="M" {{ old('sexo', $alumno->sexo) == 'M' ? 'selected' : '' }}>Masculino</option>
@@ -161,8 +161,8 @@
                         <label for="estado_civil" class="form-label">
                             Estado Civil
                         </label>
-                        <select class="form-select @error('estado_civil') is-invalid @enderror" 
-                                id="estado_civil" 
+                        <select class="form-select @error('estado_civil') is-invalid @enderror"
+                                id="estado_civil"
                                 name="estado_civil">
                             <option value="">Seleccione...</option>
                             <option value="S" {{ old('estado_civil', $alumno->estado_civil) == 'S' ? 'selected' : '' }}>Soltero(a)</option>
@@ -181,10 +181,10 @@
                         <label for="nacionalidad" class="form-label">
                             Nacionalidad
                         </label>
-                        <input type="text" 
-                               class="form-control @error('nacionalidad') is-invalid @enderror" 
-                               id="nacionalidad" 
-                               name="nacionalidad" 
+                        <input type="text"
+                               class="form-control @error('nacionalidad') is-invalid @enderror"
+                               id="nacionalidad"
+                               name="nacionalidad"
                                value="{{ old('nacionalidad', $alumno->nacionalidad) }}"
                                maxlength="3">
                         @error('nacionalidad')
@@ -197,10 +197,10 @@
                         <label for="correo_electronico" class="form-label">
                             Correo Electrónico
                         </label>
-                        <input type="email" 
-                               class="form-control @error('correo_electronico') is-invalid @enderror" 
-                               id="correo_electronico" 
-                               name="correo_electronico" 
+                        <input type="email"
+                               class="form-control @error('correo_electronico') is-invalid @enderror"
+                               id="correo_electronico"
+                               name="correo_electronico"
                                value="{{ old('correo_electronico', $alumno->correo_electronico) }}"
                                maxlength="60">
                         @error('correo_electronico')
@@ -225,10 +225,10 @@
                         <label for="carrera" class="form-label">
                             Carrera
                         </label>
-                        <input type="text" 
-                               class="form-control @error('carrera') is-invalid @enderror" 
-                               id="carrera" 
-                               name="carrera" 
+                        <input type="text"
+                               class="form-control @error('carrera') is-invalid @enderror"
+                               id="carrera"
+                               name="carrera"
                                value="{{ old('carrera', $alumno->carrera) }}"
                                maxlength="3"
                                placeholder="Ej: ISC">
@@ -242,10 +242,10 @@
                         <label for="reticula" class="form-label">
                             Retícula
                         </label>
-                        <input type="number" 
-                               class="form-control @error('reticula') is-invalid @enderror" 
-                               id="reticula" 
-                               name="reticula" 
+                        <input type="number"
+                               class="form-control @error('reticula') is-invalid @enderror"
+                               id="reticula"
+                               name="reticula"
                                value="{{ old('reticula', $alumno->reticula) }}">
                         @error('reticula')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -257,10 +257,10 @@
                         <label for="especialidad" class="form-label">
                             Especialidad
                         </label>
-                        <input type="text" 
-                               class="form-control @error('especialidad') is-invalid @enderror" 
-                               id="especialidad" 
-                               name="especialidad" 
+                        <input type="text"
+                               class="form-control @error('especialidad') is-invalid @enderror"
+                               id="especialidad"
+                               name="especialidad"
                                value="{{ old('especialidad', $alumno->especialidad) }}"
                                maxlength="5">
                         @error('especialidad')
@@ -273,10 +273,10 @@
                         <label for="plan_de_estudios" class="form-label">
                             Plan de Estudios <span class="text-danger">*</span>
                         </label>
-                        <input type="text" 
-                               class="form-control @error('plan_de_estudios') is-invalid @enderror" 
-                               id="plan_de_estudios" 
-                               name="plan_de_estudios" 
+                        <input type="text"
+                               class="form-control @error('plan_de_estudios') is-invalid @enderror"
+                               id="plan_de_estudios"
+                               name="plan_de_estudios"
                                value="{{ old('plan_de_estudios', $alumno->plan_de_estudios) }}"
                                maxlength="1"
                                required>
@@ -290,8 +290,8 @@
                         <label for="nivel_escolar" class="form-label">
                             Nivel Escolar
                         </label>
-                        <select class="form-select @error('nivel_escolar') is-invalid @enderror" 
-                                id="nivel_escolar" 
+                        <select class="form-select @error('nivel_escolar') is-invalid @enderror"
+                                id="nivel_escolar"
                                 name="nivel_escolar">
                             <option value="">Seleccione...</option>
                             <option value="L" {{ old('nivel_escolar', $alumno->nivel_escolar) == 'L' ? 'selected' : '' }}>Licenciatura</option>
@@ -308,10 +308,10 @@
                         <label for="semestre" class="form-label">
                             Semestre
                         </label>
-                        <input type="number" 
-                               class="form-control @error('semestre') is-invalid @enderror" 
-                               id="semestre" 
-                               name="semestre" 
+                        <input type="number"
+                               class="form-control @error('semestre') is-invalid @enderror"
+                               id="semestre"
+                               name="semestre"
                                value="{{ old('semestre', $alumno->semestre) }}"
                                min="1"
                                max="12">
@@ -325,8 +325,8 @@
                         <label for="tipo_ingreso" class="form-label">
                             Tipo de Ingreso <span class="text-danger">*</span>
                         </label>
-                        <select class="form-select @error('tipo_ingreso') is-invalid @enderror" 
-                                id="tipo_ingreso" 
+                        <select class="form-select @error('tipo_ingreso') is-invalid @enderror"
+                                id="tipo_ingreso"
                                 name="tipo_ingreso"
                                 required>
                             <option value="">Seleccione...</option>
@@ -345,10 +345,10 @@
                         <label for="periodo_ingreso_it" class="form-label">
                             Periodo de Ingreso <span class="text-danger">*</span>
                         </label>
-                        <input type="text" 
-                               class="form-control @error('periodo_ingreso_it') is-invalid @enderror" 
-                               id="periodo_ingreso_it" 
-                               name="periodo_ingreso_it" 
+                        <input type="text"
+                               class="form-control @error('periodo_ingreso_it') is-invalid @enderror"
+                               id="periodo_ingreso_it"
+                               name="periodo_ingreso_it"
                                value="{{ old('periodo_ingreso_it', $alumno->periodo_ingreso_it) }}"
                                maxlength="5"
                                placeholder="Ej: 20241"
@@ -363,10 +363,10 @@
                         <label for="ultimo_periodo_inscrito" class="form-label">
                             Último Período Inscrito
                         </label>
-                        <input type="text" 
-                               class="form-control @error('ultimo_periodo_inscrito') is-invalid @enderror" 
-                               id="ultimo_periodo_inscrito" 
-                               name="ultimo_periodo_inscrito" 
+                        <input type="text"
+                               class="form-control @error('ultimo_periodo_inscrito') is-invalid @enderror"
+                               id="ultimo_periodo_inscrito"
+                               name="ultimo_periodo_inscrito"
                                value="{{ old('ultimo_periodo_inscrito', $alumno->ultimo_periodo_inscrito) }}"
                                maxlength="5"
                                placeholder="Ej: 20242">
@@ -380,8 +380,8 @@
                         <label for="estatus_alumno" class="form-label">
                             Estatus
                         </label>
-                        <select class="form-select @error('estatus_alumno') is-invalid @enderror" 
-                                id="estatus_alumno" 
+                        <select class="form-select @error('estatus_alumno') is-invalid @enderror"
+                                id="estatus_alumno"
                                 name="estatus_alumno">
                             <option value="ACT" {{ old('estatus_alumno', $alumno->estatus_alumno) == 'ACT' ? 'selected' : '' }}>Activo</option>
                             <option value="INA" {{ old('estatus_alumno', $alumno->estatus_alumno) == 'INA' ? 'selected' : '' }}>Inactivo</option>
@@ -399,10 +399,10 @@
                         <label for="tipo_alumno" class="form-label">
                             Tipo de Alumno
                         </label>
-                        <input type="text" 
-                               class="form-control @error('tipo_alumno') is-invalid @enderror" 
-                               id="tipo_alumno" 
-                               name="tipo_alumno" 
+                        <input type="text"
+                               class="form-control @error('tipo_alumno') is-invalid @enderror"
+                               id="tipo_alumno"
+                               name="tipo_alumno"
                                value="{{ old('tipo_alumno', $alumno->tipo_alumno) }}"
                                maxlength="2">
                         @error('tipo_alumno')
@@ -415,10 +415,10 @@
                         <label for="clave_interna" class="form-label">
                             Clave Interna
                         </label>
-                        <input type="text" 
-                               class="form-control @error('clave_interna') is-invalid @enderror" 
-                               id="clave_interna" 
-                               name="clave_interna" 
+                        <input type="text"
+                               class="form-control @error('clave_interna') is-invalid @enderror"
+                               id="clave_interna"
+                               name="clave_interna"
                                value="{{ old('clave_interna', $alumno->clave_interna) }}"
                                maxlength="10">
                         @error('clave_interna')
@@ -431,10 +431,10 @@
                         <label for="nip" class="form-label">
                             NIP
                         </label>
-                        <input type="number" 
-                               class="form-control @error('nip') is-invalid @enderror" 
-                               id="nip" 
-                               name="nip" 
+                        <input type="number"
+                               class="form-control @error('nip') is-invalid @enderror"
+                               id="nip"
+                               name="nip"
                                value="{{ old('nip', $alumno->nip) }}">
                         @error('nip')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -458,10 +458,10 @@
                         <label for="promedio_periodo_anterior" class="form-label">
                             Promedio Período Anterior
                         </label>
-                        <input type="number" 
-                               class="form-control @error('promedio_periodo_anterior') is-invalid @enderror" 
-                               id="promedio_periodo_anterior" 
-                               name="promedio_periodo_anterior" 
+                        <input type="number"
+                               class="form-control @error('promedio_periodo_anterior') is-invalid @enderror"
+                               id="promedio_periodo_anterior"
+                               name="promedio_periodo_anterior"
                                value="{{ old('promedio_periodo_anterior', $alumno->promedio_periodo_anterior) }}"
                                step="0.01"
                                min="0"
@@ -476,10 +476,10 @@
                         <label for="promedio_aritmetico_acumulado" class="form-label">
                             Promedio Acumulado
                         </label>
-                        <input type="number" 
-                               class="form-control @error('promedio_aritmetico_acumulado') is-invalid @enderror" 
-                               id="promedio_aritmetico_acumulado" 
-                               name="promedio_aritmetico_acumulado" 
+                        <input type="number"
+                               class="form-control @error('promedio_aritmetico_acumulado') is-invalid @enderror"
+                               id="promedio_aritmetico_acumulado"
+                               name="promedio_aritmetico_acumulado"
                                value="{{ old('promedio_aritmetico_acumulado', $alumno->promedio_aritmetico_acumulado) }}"
                                step="0.01"
                                min="0"
@@ -494,10 +494,10 @@
                         <label for="promedio_final_alcanzado" class="form-label">
                             Promedio Final Alcanzado
                         </label>
-                        <input type="number" 
-                               class="form-control @error('promedio_final_alcanzado') is-invalid @enderror" 
-                               id="promedio_final_alcanzado" 
-                               name="promedio_final_alcanzado" 
+                        <input type="number"
+                               class="form-control @error('promedio_final_alcanzado') is-invalid @enderror"
+                               id="promedio_final_alcanzado"
+                               name="promedio_final_alcanzado"
                                value="{{ old('promedio_final_alcanzado', $alumno->promedio_final_alcanzado) }}"
                                step="0.01"
                                min="0"
@@ -512,10 +512,10 @@
                         <label for="indice_reprobacion_acumulado" class="form-label">
                             Índice de Reprobación
                         </label>
-                        <input type="number" 
-                               class="form-control @error('indice_reprobacion_acumulado') is-invalid @enderror" 
-                               id="indice_reprobacion_acumulado" 
-                               name="indice_reprobacion_acumulado" 
+                        <input type="number"
+                               class="form-control @error('indice_reprobacion_acumulado') is-invalid @enderror"
+                               id="indice_reprobacion_acumulado"
+                               name="indice_reprobacion_acumulado"
                                value="{{ old('indice_reprobacion_acumulado', $alumno->indice_reprobacion_acumulado) }}"
                                step="0.000001"
                                min="0"
@@ -530,10 +530,10 @@
                         <label for="creditos_aprobados" class="form-label">
                             Créditos Aprobados
                         </label>
-                        <input type="number" 
-                               class="form-control @error('creditos_aprobados') is-invalid @enderror" 
-                               id="creditos_aprobados" 
-                               name="creditos_aprobados" 
+                        <input type="number"
+                               class="form-control @error('creditos_aprobados') is-invalid @enderror"
+                               id="creditos_aprobados"
+                               name="creditos_aprobados"
                                value="{{ old('creditos_aprobados', $alumno->creditos_aprobados) }}"
                                min="0">
                         @error('creditos_aprobados')
@@ -546,10 +546,10 @@
                         <label for="creditos_cursados" class="form-label">
                             Créditos Cursados
                         </label>
-                        <input type="number" 
-                               class="form-control @error('creditos_cursados') is-invalid @enderror" 
-                               id="creditos_cursados" 
-                               name="creditos_cursados" 
+                        <input type="number"
+                               class="form-control @error('creditos_cursados') is-invalid @enderror"
+                               id="creditos_cursados"
+                               name="creditos_cursados"
                                value="{{ old('creditos_cursados', $alumno->creditos_cursados) }}"
                                min="0">
                         @error('creditos_cursados')
@@ -562,10 +562,10 @@
                         <label for="periodos_revalidacion" class="form-label">
                             Períodos de Revalidación
                         </label>
-                        <input type="number" 
-                               class="form-control @error('periodos_revalidacion') is-invalid @enderror" 
-                               id="periodos_revalidacion" 
-                               name="periodos_revalidacion" 
+                        <input type="number"
+                               class="form-control @error('periodos_revalidacion') is-invalid @enderror"
+                               id="periodos_revalidacion"
+                               name="periodos_revalidacion"
                                value="{{ old('periodos_revalidacion', $alumno->periodos_revalidacion) }}"
                                min="0">
                         @error('periodos_revalidacion')
@@ -590,10 +590,10 @@
                         <label for="escuela_procedencia" class="form-label">
                             Escuela de Procedencia
                         </label>
-                        <input type="text" 
-                               class="form-control @error('escuela_procedencia') is-invalid @enderror" 
-                               id="escuela_procedencia" 
-                               name="escuela_procedencia" 
+                        <input type="text"
+                               class="form-control @error('escuela_procedencia') is-invalid @enderror"
+                               id="escuela_procedencia"
+                               name="escuela_procedencia"
                                value="{{ old('escuela_procedencia', $alumno->escuela_procedencia) }}"
                                maxlength="50">
                         @error('escuela_procedencia')
@@ -606,8 +606,8 @@
                         <label for="tipo_escuela" class="form-label">
                             Tipo de Escuela
                         </label>
-                        <select class="form-select @error('tipo_escuela') is-invalid @enderror" 
-                                id="tipo_escuela" 
+                        <select class="form-select @error('tipo_escuela') is-invalid @enderror"
+                                id="tipo_escuela"
                                 name="tipo_escuela">
                             <option value="">Seleccione...</option>
                             <option value="1" {{ old('tipo_escuela', $alumno->tipo_escuela) == '1' ? 'selected' : '' }}>Pública</option>
@@ -623,10 +623,10 @@
                         <label for="entidad_procedencia" class="form-label">
                             Entidad de Procedencia
                         </label>
-                        <input type="text" 
-                               class="form-control @error('entidad_procedencia') is-invalid @enderror" 
-                               id="entidad_procedencia" 
-                               name="entidad_procedencia" 
+                        <input type="text"
+                               class="form-control @error('entidad_procedencia') is-invalid @enderror"
+                               id="entidad_procedencia"
+                               name="entidad_procedencia"
                                value="{{ old('entidad_procedencia', $alumno->entidad_procedencia) }}"
                                maxlength="50">
                         @error('entidad_procedencia')
@@ -639,9 +639,9 @@
                         <label for="ciudad_procedencia" class="form-label">
                             Ciudad de Procedencia
                         </label>
-                        <input type="text" 
-                               class="form-control @error('ciudad_procedencia') is-invalid @enderror" 
-                               id="ciudad_procedencia" 
+                        <input type="text"
+                               class="form-control @error('ciudad_procedencia') is-invalid @enderror"
+                               id="ciudad_procedencia"
                                name="ciudad_procedencia"
                                value="{{ old('ciudad_procedencia', $alumno->ciudad_procedencia) }}"
                                maxlength="50">
@@ -655,10 +655,10 @@
                         <label for="domicilio_escuela" class="form-label">
                             Domicilio de la Escuela
                         </label>
-                        <input type="text" 
-                               class="form-control @error('domicilio_escuela') is-invalid @enderror" 
-                               id="domicilio_escuela" 
-                               name="domicilio_escuela" 
+                        <input type="text"
+                               class="form-control @error('domicilio_escuela') is-invalid @enderror"
+                               id="domicilio_escuela"
+                               name="domicilio_escuela"
                                value="{{ old('domicilio_escuela', $alumno->domicilio_escuela) }}"
                                maxlength="60">
                         @error('domicilio_escuela')
@@ -671,8 +671,8 @@
                         <label for="tipo_servicio_medico" class="form-label">
                             Tipo de Servicio Médico
                         </label>
-                        <select class="form-select @error('tipo_servicio_medico') is-invalid @enderror" 
-                                id="tipo_servicio_medico" 
+                        <select class="form-select @error('tipo_servicio_medico') is-invalid @enderror"
+                                id="tipo_servicio_medico"
                                 name="tipo_servicio_medico">
                             <option value="">Seleccione...</option>
                             <option value="I" {{ old('tipo_servicio_medico', $alumno->tipo_servicio_medico) == 'I' ? 'selected' : '' }}>IMSS</option>
@@ -690,10 +690,10 @@
                         <label for="clave_servicio_medico" class="form-label">
                             Clave Servicio Médico
                         </label>
-                        <input type="text" 
-                               class="form-control @error('clave_servicio_medico') is-invalid @enderror" 
-                               id="clave_servicio_medico" 
-                               name="clave_servicio_medico" 
+                        <input type="text"
+                               class="form-control @error('clave_servicio_medico') is-invalid @enderror"
+                               id="clave_servicio_medico"
+                               name="clave_servicio_medico"
                                value="{{ old('clave_servicio_medico', $alumno->clave_servicio_medico) }}"
                                maxlength="20">
                         @error('clave_servicio_medico')
@@ -706,10 +706,10 @@
                         <label for="becado_por" class="form-label">
                             Becado Por
                         </label>
-                        <input type="text" 
-                               class="form-control @error('becado_por') is-invalid @enderror" 
-                               id="becado_por" 
-                               name="becado_por" 
+                        <input type="text"
+                               class="form-control @error('becado_por') is-invalid @enderror"
+                               id="becado_por"
+                               name="becado_por"
                                value="{{ old('becado_por', $alumno->becado_por) }}"
                                maxlength="100"
                                placeholder="Institución o programa de beca">
@@ -735,10 +735,10 @@
                         <label for="fecha_titulacion" class="form-label">
                             Fecha de Titulación
                         </label>
-                        <input type="date" 
-                               class="form-control @error('fecha_titulacion') is-invalid @enderror" 
-                               id="fecha_titulacion" 
-                               name="fecha_titulacion" 
+                        <input type="date"
+                               class="form-control @error('fecha_titulacion') is-invalid @enderror"
+                               id="fecha_titulacion"
+                               name="fecha_titulacion"
                                value="{{ old('fecha_titulacion', $alumno->fecha_titulacion?->format('Y-m-d')) }}">
                         @error('fecha_titulacion')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -750,10 +750,10 @@
                         <label for="opcion_titulacion" class="form-label">
                             Opción de Titulación
                         </label>
-                        <input type="text" 
-                               class="form-control @error('opcion_titulacion') is-invalid @enderror" 
-                               id="opcion_titulacion" 
-                               name="opcion_titulacion" 
+                        <input type="text"
+                               class="form-control @error('opcion_titulacion') is-invalid @enderror"
+                               id="opcion_titulacion"
+                               name="opcion_titulacion"
                                value="{{ old('opcion_titulacion', $alumno->opcion_titulacion) }}"
                                maxlength="4">
                         @error('opcion_titulacion')
@@ -766,10 +766,10 @@
                         <label for="periodo_titulacion" class="form-label">
                             Periodo de Titulación
                         </label>
-                        <input type="text" 
-                               class="form-control @error('periodo_titulacion') is-invalid @enderror" 
-                               id="periodo_titulacion" 
-                               name="periodo_titulacion" 
+                        <input type="text"
+                               class="form-control @error('periodo_titulacion') is-invalid @enderror"
+                               id="periodo_titulacion"
+                               name="periodo_titulacion"
                                value="{{ old('periodo_titulacion', $alumno->periodo_titulacion) }}"
                                maxlength="5"
                                placeholder="Ej: 20241">
@@ -783,10 +783,10 @@
                         <label for="folio" class="form-label">
                             Folio
                         </label>
-                        <input type="number" 
-                               class="form-control @error('folio') is-invalid @enderror" 
-                               id="folio" 
-                               name="folio" 
+                        <input type="number"
+                               class="form-control @error('folio') is-invalid @enderror"
+                               id="folio"
+                               name="folio"
                                value="{{ old('folio', $alumno->folio) }}">
                         @error('folio')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -809,8 +809,8 @@
                     <!-- Estatus Anterior -->
                     <div class="col-md-4">
                         <label class="form-label">Estatus Anterior</label>
-                        <input type="text" 
-                               class="form-control" 
+                        <input type="text"
+                               class="form-control"
                                value="{{ $alumno->estatus_alumno_anterior ?? 'N/A' }}"
                                disabled>
                     </div>
@@ -818,8 +818,8 @@
                     <!-- Fecha de Cambio de Estatus -->
                     <div class="col-md-4">
                         <label class="form-label">Fecha de Cambio</label>
-                        <input type="text" 
-                               class="form-control" 
+                        <input type="text"
+                               class="form-control"
                                value="{{ $alumno->estatus_alumno_fecha?->format('d/m/Y') ?? 'N/A' }}"
                                disabled>
                     </div>
@@ -827,8 +827,8 @@
                     <!-- Usuario que Cambió el Estatus -->
                     <div class="col-md-4">
                         <label class="form-label">Usuario que Modificó</label>
-                        <input type="text" 
-                               class="form-control" 
+                        <input type="text"
+                               class="form-control"
                                value="{{ $alumno->estatus_alumno_usuario ?? 'N/A' }}"
                                disabled>
                     </div>
@@ -844,14 +844,14 @@
                     <div class="col-md-6">
                         <small class="text-muted">
                             <i class="bi bi-calendar-plus"></i>
-                            <strong>Fecha de registro:</strong> 
+                            <strong>Fecha de registro:</strong>
                             {{ $alumno->created_at->format('d/m/Y H:i:s') }}
                         </small>
                     </div>
                     <div class="col-md-6 text-md-end">
                         <small class="text-muted">
                             <i class="bi bi-calendar-check"></i>
-                            <strong>Última actualización:</strong> 
+                            <strong>Última actualización:</strong>
                             {{ $alumno->updated_at->format('d/m/Y H:i:s') }}
                         </small>
                     </div>
@@ -917,7 +917,7 @@
         if (creditosAprobados && creditosCursados) {
             const aprobados = parseFloat(creditosAprobados.value) || 0;
             const cursados = parseFloat(creditosCursados.value) || 0;
-            
+
             if (cursados > 0) {
                 const porcentaje = ((aprobados / cursados) * 100).toFixed(2);
                 console.log(`Avance de créditos: ${porcentaje}%`);
